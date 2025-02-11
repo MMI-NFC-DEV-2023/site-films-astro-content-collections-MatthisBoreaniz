@@ -6,10 +6,13 @@ dateDeces: 2014-08-11
 lieuNaissance: Chicago
 lieuDeces: Paradise Cay
 nationalite: US
+profession:
+  - acteur
+  - réalisateur
 ---
 
 # Biographie de l'auteur
 
-    - acteur
-    - humoriste
-    - producteur
+- acteur
+- humoriste
+- producteur
