@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { data } from "alpinejs";
+import { getEntries } from "astro:content";
 import { getEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import { formatDate } from "src/helpers";
@@ -13,25 +14,43 @@ export async function getStaticPaths() {
   }));
 }
 
-
 // 2. For your template, you can get the entry directly from the prop
 const { film } = Astro.props;
 const { Content } = await render(film);
 
 // const profession = film.data.profession && [...new Set(film.data.profession)],
 
-const realisateur = film.data.réalisateur && await getEntry(film.data.réalisateur);
+const realisateur =
+  film.data.réalisateur && (await getEntry(film.data.réalisateur));
+const scenariste =
+  film.data.scénariste && (await getEntries(film.data.scénariste));
 ---
 
 <Layout pageTitle={`Fiche du Film ${film.data.titre} `}>
-    <h1 class="font-bold text-lg">{film.data.titre} </h1>
-    <p>Date de sortie : {formatDate(film.data.dateSortie)}</p>
-    <p>Durée : {film.data.duree}</p>
-    <p>Langue : {film.data.langue}</p>
-    <p>Synopsis : {film.data.synopsis}</p>
-    {realisateur && <p>Réalisé par : {realisateur.data.prenom} {realisateur.data.nom}</p>}
-   
-    <div class="prose prose-lg">
-        <Content />
-    </div>
+  <h1 class="font-bold text-lg">{film.data.titre}</h1>
+  <p>Date de sortie : {formatDate(film.data.dateSortie)}</p>
+  <p>Durée : {film.data.duree}</p>
+  <p>Langue : {film.data.langue}</p>
+  <p>Synopsis : {film.data.synopsis}</p>
+  {
+    realisateur && (
+      <p>
+        Réalisé par : {realisateur.data.prenom} {realisateur.data.nom}
+      </p>
+    )
+  }
+  {
+    scenariste && (
+      <p>
+        Scénario de :{" "}
+        {scenariste
+          .map((s) => `${s.data.prenom} ${s.data.nom}`)
+          .join(", ")
+          .replace(/, ([^,]*)$/, " et $1")}
+      </p>
+    )
+  }
+  <div class="prose prose-lg">
+    <Content />
+  </div>
 </Layout>

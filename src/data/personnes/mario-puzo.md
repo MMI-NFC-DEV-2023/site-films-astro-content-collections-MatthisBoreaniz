@@ -8,7 +8,6 @@ lieuDeces: West Bay Shore
 nationalite: US
 profession:
   - scénariste
-  - écrivain
 ---
 
 # Biographie de l'auteur
