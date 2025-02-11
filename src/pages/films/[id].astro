@@ -59,13 +59,13 @@ const roles =
       </p>
     )
   }
-{ roles.length > 0 && (  <>
+{ roles.length && (  <>
   <h2>Acteurs</h2>
   <ul>
     {
       roles.map((r) => (
         <li>
-          <strong>{r.role}</strong> : Joué par {r.acteur.data.prenom} {r.acteur.data.nom}
+          <strong>{r.role}</strong> : Joué par <a href={`/personnes/${r.acteur.id}`}>{r.acteur.data.prenom} {r.acteur.data.nom}</a>
         </li>
       ))
     }
