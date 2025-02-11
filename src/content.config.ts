@@ -11,7 +11,7 @@ const personnes = defineCollection({
     lieuNaissance: z.string(),
     lieuDeces: z.string().optional(),
     nationalite: z.string(),
-    profession: z.array(z.enum(["acteur", "réalisateur", "scénariste", "Producteur"])).optional(),
+    profession: z.array(z.enum(["acteur", "réalisateur", "scénariste", "producteur"])).optional(),
   }),
 });
 
