@@ -6,6 +6,13 @@ langue: Anglais
 synopsis: "William Wallace, un chevalier écossais du XIIIe siècle, mène son peuple dans une révolte contre le roi Édouard Ier d'Angleterre."
 réalisateur: mel-gibson
 scénariste: [randall-wallace]
+roles:
+  - acteur: mel-gibson
+    role: William Wallace
+  - acteur: sophie-marceau
+    role: Princess Isabelle
+  - acteur: patrick-mcgoohan
+    role: King Edward
 ---
 
 # Braveheart

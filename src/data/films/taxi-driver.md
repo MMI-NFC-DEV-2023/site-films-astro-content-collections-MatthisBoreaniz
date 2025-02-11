@@ -6,6 +6,13 @@ langue: Anglais
 synopsis: "Un vétéran du Vietnam mentalement instable travaille comme chauffeur de taxi nocturne à New York, où la décadence perçue et la dépravation alimentent son désir violent d'agir."
 réalisateur: martin-scorsese
 scénariste: [paul-schrader]
+roles:
+  - acteur: robert-de-niro
+    role: Travis Bickle
+  - acteur: jodie-foster
+    role: Iris
+  - acteur: harvey-keitel
+    role: Sport
 ---
 
 # Taxi Driver

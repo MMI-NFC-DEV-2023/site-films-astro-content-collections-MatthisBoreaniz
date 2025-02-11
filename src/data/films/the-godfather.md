@@ -6,6 +6,13 @@ langue: Anglais
 synopsis: "L'histoire de la famille Corleone, une des plus puissantes familles de la mafia italo-américaine, dirigée par le patriarche Vito Corleone."
 réalisateur: francis-ford-coppola
 scénariste: [francis-ford-coppola, mario-puzo]
+roles:
+  - acteur: marlon-brando
+    role: Vito Corleone
+  - acteur: al-pacino
+    role: Michael Corleone
+  - acteur: james-caan
+    role: Sonny Corleone
 ---
 
 # The Godfather

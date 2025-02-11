@@ -11,7 +11,9 @@ const personnes = defineCollection({
     lieuNaissance: z.string(),
     lieuDeces: z.string().optional(),
     nationalite: z.string(),
-    profession: z.array(z.enum(["acteur", "réalisateur", "scénariste", "producteur"])).optional(),
+    profession: z
+      .array(z.enum(["acteur", "réalisateur", "scénariste", "producteur"]))
+      .optional(),
   }),
 });
 
@@ -23,8 +25,14 @@ const films = defineCollection({
     duree: z.number(),
     langue: z.string(),
     synopsis: z.string(),
-    réalisateur: reference("personnes").optional(),  
-    scénariste: z.array(reference("personnes")).optional(), 
+    réalisateur: reference("personnes").optional(),
+    scénariste: z.array(reference("personnes")).optional(),
+    roles: z.array(
+      z.object({
+        acteur: reference("personnes"),
+        role: z.string(),
+      })
+    ),
   }),
 });
 
