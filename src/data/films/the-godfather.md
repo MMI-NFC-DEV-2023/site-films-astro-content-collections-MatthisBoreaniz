@@ -5,6 +5,7 @@ duree: 175
 langue: Anglais
 synopsis: "L'histoire de la famille Corleone, une des plus puissantes familles de la mafia italo-américaine, dirigée par le patriarche Vito Corleone."
 réalisateur: francis-ford-coppola
+scénariste: [francis-ford-coppola, mario-puzo]
 ---
 
 # The Godfather

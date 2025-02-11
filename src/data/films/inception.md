@@ -5,6 +5,7 @@ duree: 148
 langue: Anglais
 synopsis: "Dom Cobb, un voleur expérimenté dans l'art de l'extraction, vole des secrets précieux du subconscient pendant le rêve, lorsque l'esprit est le plus vulnérable."
 réalisateur: christopher-nolan
+scénariste: [christopher-nolan]
 ---
 
 # Inception
