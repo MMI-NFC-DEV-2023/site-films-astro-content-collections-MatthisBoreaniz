@@ -8,6 +8,6 @@ nationalite: US
 
 # Biographie de l'auteur
 
-    - acteur
-    - producteur
-    - realisateur
+- acteur
+- producteur
+- realisateur

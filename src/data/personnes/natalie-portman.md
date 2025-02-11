@@ -8,6 +8,6 @@ nationalite: US
 
 # Biographie de l'auteur
 
-    - actrice
-    - productrice
-    - realisatrice
+- actrice
+- productrice
+- realisatrice
