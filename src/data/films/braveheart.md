@@ -4,6 +4,7 @@ dateSortie: 1995-05-24
 duree: 178
 langue: Anglais
 synopsis: "William Wallace, un chevalier écossais du XIIIe siècle, mène son peuple dans une révolte contre le roi Édouard Ier d'Angleterre."
+réalisateur: mel-gibson
 ---
 
 # Braveheart

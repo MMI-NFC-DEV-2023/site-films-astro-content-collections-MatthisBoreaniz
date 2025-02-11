@@ -10,7 +10,7 @@ const films = await getCollection("films");
     {
       films.map((film) => (
         <li>
-          <a href={`/films/${film.id}`} class="bg-purple-600 rounded-full text-white hover:bg-white hover:text-purple-600 hover:broder hover:border-1 hover:border-purple-600 hover:p-4 p-2 ">{film.data.titre}</a>
+          <a href={`/films/${film.id}`} class="bg-red-400 rounded-full text-white hover:bg-white hover:text-red-400 hover:broder hover:border-1 hover:border-red-400 hover:p-4 p-2 ">{film.data.titre}</a>
         </li>
       ))
     }

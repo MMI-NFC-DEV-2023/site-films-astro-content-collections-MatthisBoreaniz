@@ -4,6 +4,7 @@ dateSortie: 1972-03-24
 duree: 175
 langue: Anglais
 synopsis: "L'histoire de la famille Corleone, une des plus puissantes familles de la mafia italo-américaine, dirigée par le patriarche Vito Corleone."
+réalisateur: francis-ford-coppola
 ---
 
 # The Godfather
