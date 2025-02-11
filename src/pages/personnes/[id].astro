@@ -25,7 +25,7 @@ const { Content } = await render(personne);
     {personne.data.dateDeces && <p>Date de décès : {(formatDate(personne.data.dateDeces))}</p>}
     <p>Lieu de naissance : {personne.data.lieuNaissance}</p>
     {personne.data.lieuDeces && <p>Lieu de décès : {personne.data.lieuDeces}</p>}
-    {personne.data.profession && <p>Profession{personne.data.profession.length > 1 && <>s</>} : {personne.data.profession.join(", ").replace(/, ([^,]*)$/, 'et $1')}</p>}
+    {personne.data.profession && <p>Profession{personne.data.profession.length > 1 && <>s</>} : {personne.data.profession.join(", ").replace(/, ([^,]*)$/, ' et $1')}</p>}
 
     <div class="prose prose-lg">
         <Content />

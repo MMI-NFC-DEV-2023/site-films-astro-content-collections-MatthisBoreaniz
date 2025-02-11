@@ -10,7 +10,13 @@ const personnes = await getCollection("personnes");
     {
       personnes.map((personne) => (
         <li>
-          <a href={`/personnes/${personne.id}`} class="bg-purple-600 rounded-full text-white hover:bg-white hover:text-purple-600 hover:broder hover:border-1 hover:border-purple-600 hover:p-4 p-2 ">{personne.data.nom}</a>
+          <a
+            href={`/personnes/${personne.id}`}
+            class="bg-purple-600 rounded-full text-white hover:bg-white hover:text-purple-600 hover:broder hover:border-1 hover:border-purple-600 hover:p-4 p-2 "
+          >
+            {personne.data.prenom}
+            {personne.data.nom}
+          </a>
         </li>
       ))
     }
