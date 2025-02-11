@@ -1,4 +1,5 @@
 ---
+import LinkPersonne from "@components/LinkPersonne.astro";
 import Layout from "@layouts/Layout.astro";
 import { data } from "alpinejs";
 import { getEntries } from "astro:content";
@@ -44,7 +45,7 @@ const roles =
   {
     realisateur && (
       <p>
-        Réalisé par : {realisateur.data.prenom} {realisateur.data.nom}
+        Réalisé par : <LinkPersonne personne={realisateur}/>
       </p>
     )
   }
@@ -53,9 +54,8 @@ const roles =
       <p>
         Scénario de :{" "}
         {scenariste
-          .map((s) => `${s.data.prenom} ${s.data.nom}`)
-          .join(", ")
-          .replace(/, ([^,]*)$/, " et $1")}
+          .map((s) => <LinkPersonne personne={s} />)
+          .reduce((prev, curr) => [prev, ", ", curr])}
       </p>
     )
   }
@@ -65,7 +65,7 @@ const roles =
     {
       roles.map((r) => (
         <li>
-          <strong>{r.role}</strong> : Joué par <a href={`/personnes/${r.acteur.id}`}>{r.acteur.data.prenom} {r.acteur.data.nom}</a>
+          <strong>{r.role}</strong> : Joué par <LinkPersonne personne={r.acteur}/>
         </li>
       ))
     }
