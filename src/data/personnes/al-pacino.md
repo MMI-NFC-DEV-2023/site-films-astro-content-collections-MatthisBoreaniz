@@ -1,17 +1,15 @@
 ---
-nom: Gibson
-prenom: Mel
-dateNaissance: 1956-01-03
-lieuNaissance: Peekskill
+nom: Pacino
+prenom: Al
+dateNaissance: 1940-04-25
+lieuNaissance: New York City
 nationalite: US
 profession:
   - acteur
   - réalisateur
-  - producteur
 ---
 
 # Biographie de l'auteur
 
 - acteur
 - réalisateur
-- producteur

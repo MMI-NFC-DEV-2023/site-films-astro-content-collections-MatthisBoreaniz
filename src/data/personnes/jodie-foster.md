@@ -1,8 +1,8 @@
 ---
-nom: Gibson
-prenom: Mel
-dateNaissance: 1956-01-03
-lieuNaissance: Peekskill
+nom: Foster
+prenom: Jodie
+dateNaissance: 1962-11-19
+lieuNaissance: Los Angeles
 nationalite: US
 profession:
   - acteur
