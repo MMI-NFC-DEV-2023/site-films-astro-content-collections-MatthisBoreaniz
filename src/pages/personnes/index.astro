@@ -5,6 +5,16 @@ const personnes = await getCollection("personnes");
 ---
 
 <Layout pageTitle="Liste des personnes">
+  <h1 class="font-bold text-2xl text-center">Liste des personnes</h1>
+  <ul class="my-5 flex gap-5 justify-center">
+    {
+      personnes.map((personne) => (
+        <li>
+          <a href={`/personnes/${personne.id}`} class="bg-purple-600 rounded-full text-white hover:bg-white hover:text-purple-600 hover:broder hover:border-1 hover:border-purple-600 hover:p-4 p-2 ">{personne.data.nom}</a>
+        </li>
+      ))
+    }
+  </ul>
   <pre>
           {JSON.stringify(personnes, null, 2)}
     </pre>
