@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+const personnes = await getCollection("personnes");
+---
+
+<Layout pageTitle="Liste des personnes">
+  <pre>
+          {JSON.stringify(personnes, null, 2)}
+    </pre>
+</Layout>
