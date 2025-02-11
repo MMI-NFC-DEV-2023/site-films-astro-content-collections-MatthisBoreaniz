@@ -26,4 +26,4 @@ const films = defineCollection({
   }),
 });
 
-export const collections = { personnes };
+export const collections = { personnes, films };

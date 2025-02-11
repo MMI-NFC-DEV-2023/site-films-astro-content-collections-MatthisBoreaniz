@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { data } from "alpinejs";
+import { getCollection, render } from "astro:content";
+import { formatDate } from "src/helpers";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const films = await getCollection("films");
+  return films.map((film) => ({
+    params: { id: film.id },
+    props: { film },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { film } = Astro.props;
+const { Content } = await render(film);
+
+// const profession = film.data.profession && [...new Set(film.data.profession)],
+---
+
+<Layout pageTitle={`Fiche du Film ${film.data.titre} `}>
+    <h1 class="font-bold text-lg">{film.data.titre} </h1>
+    <p>Date de sortie : {formatDate(film.data.dateSortie)}</p>
+    <p>Durée : {film.data.duree}</p>
+    <p>Langue : {film.data.langue}</p>
+    <p>Synopsis : {film.data.synopsis}</p>
+   
+    <div class="prose prose-lg">
+        <Content />
+    </div>
+</Layout>
