@@ -55,8 +55,9 @@ const roles =
         Scénario de :{" "}
         {scenariste
           .map((s) => <LinkPersonne personne={s} />)
-          .reduce((prev, curr) => [prev, ", ", curr])}
-      </p>
+          .reduce((prev, curr) => [prev, ", ", curr])
+        }
+            </p>
     )
   }
 { roles.length && (  <>

@@ -1,4 +1,5 @@
 ---
+import LinkFilm from "@components/LinkFilm.astro";
 import Layout from "@layouts/Layout.astro";
 import { data } from "alpinejs";
 import { getCollection, render } from "astro:content";
@@ -16,18 +17,45 @@ const { personne } = Astro.props;
 const { Content } = await render(personne);
 
 // const profession = personne.data.profession && [...new Set(personne.data.profession)],
+
+const filmsRealises = [...(await getCollection("films"))].filter(
+  (film) => film.data.réalisateur?.id === personne.id
+);
 ---
 
 <Layout pageTitle={`Fiche de ${personne.data.prenom} ${personne.data.nom}`}>
-    <h1 class="font-bold text-lg">{personne.data.prenom} {personne.data.nom}</h1>
-    <p>Nationalité : {personne.data.nationalite}</p>
-    <p>Date de naissance : {(formatDate(personne.data.dateNaissance))}</p>
-    {personne.data.dateDeces && <p>Date de décès : {(formatDate(personne.data.dateDeces))}</p>}
-    <p>Lieu de naissance : {personne.data.lieuNaissance}</p>
-    {personne.data.lieuDeces && <p>Lieu de décès : {personne.data.lieuDeces}</p>}
-    {personne.data.profession && <p>Profession{personne.data.profession.length > 1 && <>s</>} : {personne.data.profession.join(", ").replace(/, ([^,]*)$/, ' et $1')}</p>}
+  <h1 class="font-bold text-lg">{personne.data.prenom} {personne.data.nom}</h1>
+  <p>Nationalité : {personne.data.nationalite}</p>
+  <p>Date de naissance : {formatDate(personne.data.dateNaissance)}</p>
+  {
+    personne.data.dateDeces && (
+      <p>Date de décès : {formatDate(personne.data.dateDeces)}</p>
+    )
+  }
+  <p>Lieu de naissance : {personne.data.lieuNaissance}</p>
+  {personne.data.lieuDeces && <p>Lieu de décès : {personne.data.lieuDeces}</p>}
+  {
+    personne.data.profession && (
+      <p>
+        Profession{personne.data.profession.length > 1 && <>s</>} :{" "}
+        {personne.data.profession.join(", ").replace(/, ([^,]*)$/, " et $1")}
+      </p>
+    )
+  }
 
-    <div class="prose prose-lg">
-        <Content />
-    </div>
+  {
+    filmsRealises.length > 0 && (
+      <p>
+        Films réalisés :{" "}
+        {filmsRealises
+          .map((film) => <LinkFilm {...film} />)
+          .reduce((prev, curr) => [prev, ", ", curr])
+        }
+      </p>
+    )
+  }
+
+  <div class="prose prose-lg">
+    <Content />
+  </div>
 </Layout>
