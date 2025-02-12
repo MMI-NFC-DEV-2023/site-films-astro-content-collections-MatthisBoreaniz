@@ -47,7 +47,7 @@ const filmsRoles = [...(await getCollection("films"))].filter((film) =>
         <p class="text-gray-700 mb-2">
           Date de décès : {formatDate(personne.data.dateDeces)}
         </p>
-      )
+      )   
     }
     <p class="text-gray-700 mb-2">
       Lieu de naissance : {personne.data.lieuNaissance}
@@ -86,12 +86,16 @@ const filmsRoles = [...(await getCollection("films"))].filter((film) =>
     {
       filmsRoles.map((film, index) => (
         <>
-          À joué le rôle de {" "}
+          <p class="text-gray-700 mb-2">À joué le rôle de </p>
           {film.data.roles
             .filter((r) => r.acteur.id === personne.id)
             .map((r) => r.role)
             .join(", ")}
-
+          {index !== filmsRoles.length - 2 ? ", " : ""}
+          {index === filmsRoles.length - 2 ? " et " : ""}
+          <span class="text-gray-700 mb-2">dans 
+            <LinkFilm {...film} />
+          </span>
         </>
       ))
     }
