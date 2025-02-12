@@ -1,0 +1,20 @@
+---
+import  LinkFilm  from "@components/LinkFilm.astro";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+    films: CollectionEntry<"films">[];
+}
+const {films} = Astro.props
+
+
+---
+
+{
+  films.map((film, index) => (
+    <>
+      <LinkFilm {...film} />
+      {index !== films.length - 2 ? ", " : ""}
+      {index === films.length - 2 ? " et " : ""}
+    </>
+  ))
+}

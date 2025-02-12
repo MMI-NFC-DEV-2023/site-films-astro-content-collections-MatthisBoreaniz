@@ -1,5 +1,6 @@
 ---
 import LinkFilm from "@components/LinkFilm.astro";
+import ListeLinkfilm from "@components/ListeLinkfilm.astro";
 import Layout from "@layouts/Layout.astro";
 import { data } from "alpinejs";
 import { getCollection, render } from "astro:content";
@@ -42,16 +43,12 @@ const filmsRealises = [...(await getCollection("films"))].filter(
       </p>
     )
   }
-
   {
     filmsRealises.length > 0 && (
-      <p>
-        Films réalisés :{" "}
-        {filmsRealises
-          .map((film) => <LinkFilm {...film} />)
-          .reduce((prev, curr) => [prev, ", ", curr])
-        }
-      </p>
+      <div>
+        <p>Films réalisés :</p>
+        <ListeLinkfilm films={filmsRealises} />
+      </div>
     )
   }
 
