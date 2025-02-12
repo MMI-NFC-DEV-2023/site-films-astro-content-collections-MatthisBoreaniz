@@ -37,45 +37,48 @@ const roles =
 ---
 
 <Layout pageTitle={`Fiche du Film ${film.data.titre} `}>
-  <h1 class="font-bold text-lg">{film.data.titre}</h1>
-  <p>Date de sortie : {formatDate(film.data.dateSortie)}</p>
-  <p>Durée : {film.data.duree}</p>
-  <p>Langue : {film.data.langue}</p>
-  <p>Synopsis : {film.data.synopsis}</p>
-  {
-    realisateur && (
-      <p>
-        Réalisé par : <LinkPersonne personne={realisateur}/>
-      </p>
-    )
-  }
-  {
-    scenariste && (
-      <p>
-        Scénario de :{" "}
-        {scenariste
-          .map((s) => <LinkPersonne personne={s} />)
-          .reduce((prev, curr) => [prev, ", ", curr])
-        }
-            </p>
-    )
-  }
-{ roles.length && (  <>
-  <h2>Acteurs</h2>
-  <ul>
-    {
-      roles.map((r) => (
-        <li>
-          <strong>{r.role}</strong> : Joué par <LinkPersonne personne={r.acteur}/>
-        </li>
-      ))
-    }
-  </ul>
-  </>)}
-  <!-- <pre>
-    {JSON.stringify(film, null, 2)}
-  </pre> -->
-  <div class="prose prose-lg">
-    <Content />
+  <div class="max-w-4xl mx-auto p-4">
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+      <h1 class="font-bold text-2xl mb-4">{film.data.titre}</h1>
+      <p class="text-gray-700 mb-2">Date de sortie : {formatDate(film.data.dateSortie)}</p>
+      <p class="text-gray-700 mb-2">Durée : {film.data.duree}</p>
+      <p class="text-gray-700 mb-2">Langue : {film.data.langue}</p>
+      <p class="text-gray-700 mb-4">Synopsis : {film.data.synopsis}</p>
+      {
+        realisateur && (
+          <p class="text-gray-700 mb-2">
+            Réalisé par : <LinkPersonne personne={realisateur}/>
+          </p>
+        )
+      }
+      {
+        scenariste && (
+          <p class="text-gray-700 mb-4">
+            Scénario de :{" "}
+            {scenariste
+              .map((s) => <LinkPersonne personne={s} />)
+              .reduce((prev, curr) => [prev, ", ", curr])
+            }
+          </p>
+        )
+      }
+      { roles.length && (
+        <div class="bg-gray-100 p-4 rounded-lg">
+          <h2 class="font-bold text-xl mb-4">Acteurs</h2>
+          <ul class="list-disc list-inside">
+            {
+              roles.map((r) => (
+                <li class="text-gray-700 mb-2">
+                  <strong>{r.role}</strong> : Joué par <LinkPersonne personne={r.acteur}/>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      )}
+    </div>
+    <div class="prose prose-lg">
+      <Content />
+    </div>
   </div>
 </Layout>
